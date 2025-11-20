@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add Product | West Side</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .admin-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            padding: 2rem 2.5rem;
+        }
+        .product-list {
+            margin-top: 2rem;
+        }
+        .product-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/home">WEST SIDE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-cart3"></i> Cart</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <div id="adminWorkflow" class="admin-form">
+            <!-- Step 1: Product -->
+            <form id="addProductForm">
+                <h3 class="mb-4 text-center">Add New Product</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Product Name</label>
+                        <input type="text" class="form-control" name="product_name" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Brand</label>
+                        <input type="text" class="form-control" name="brand" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Subcategory</label>
+                        <select class="form-select" name="subcategory_id" required>
+                            <option value="1">Shirt</option>
+                            <option value="2">T-shirt</option>
+                            <option value="3">Crop-top</option>
+                            <option value="4">Kurti</option>
+                            <option value="5">Pants</option>
+                            <option value="6">Jeans</option>
+                            <option value="7">Skirts</option>
+                            <option value="8">Leggings</option>
+                            <option value="9">Shoes</option>
+                            <option value="10">Sneakers</option>
+                            <option value="11">Sandals</option>
+                            <option value="12">Boots</option>
+                            <option value="13">Watches</option>
+                            <option value="14">Handbag</option>
+                            <option value="15">Belt</option>
+                            <option value="16">Socks</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Material</label>
+                        <input type="text" class="form-control" name="material" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Vendor Name</label>
+                        <input type="text" class="form-control" name="vendor_name" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Min Order Qty</label>
+                        <input type="number" class="form-control" name="min_order_qty" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Max Order Qty</label>
+                        <input type="number" class="form-control" name="max_order_qty" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Occasion</label>
+                        <select class="form-select" name="occasion" required>
+                            <option>Office</option>
+                            <option>DailyWear</option>
+                            <option>Travel</option>
+                            <option>Festival</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Style</label>
+                        <select class="form-select" name="style" required>
+                            <option>Tops</option>
+                            <option>Bottoms</option>
+                            <option>Accessories</option>
+                            <option>Footwear</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Season</label>
+                        <select class="form-select" name="season" required>
+                            <option>Summer</option>
+                            <option>Winter</option>
+                            <option>Monsoon</option>
+                            <option>Spring</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Gender</label>
+                        <select class="form-select" name="gender" required>
+                            <option>Men</option>
+                            <option>Women</option>
+                            <option>Unisex</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Rating</label>
+                        <input type="number" class="form-control" name="rating" min="0" max="5" required />
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" name="product_desc" rows="2" required></textarea>
+                    </div>
+                </div>
+                <div class="d-grid mt-4">
+                    <button class="btn btn-success" type="submit">Next: Add Variants</button>
+                </div>
+            </form>
+            <!-- Step 2: Variants & Inventory -->
+            <form id="addVariantsForm" style="display:none;">
+                <h3 class="mb-4 text-center">Add Product Variants & Inventory</h3>
+                <div class="alert alert-info mb-3">
+                    <b>Tip:</b> Add all available sizes, colors, and stock for this product. Each variant can have its own price, image, and inventory.
+                </div>
+                <div id="variantsContainer"></div>
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-outline-primary" id="addVariantBtn"><i class="bi bi-plus"></i> Add Another Variant</button>
+                    <button class="btn btn-success" type="submit">Finish & Add Product</button>
+                </div>
+            </form>
+            <div id="successMsg" class="alert alert-success mt-3" style="display:none;"></div>
+            <div id="errorMsg" class="alert alert-danger mt-3" style="display:none;"></div>
+        </div>
+        <div class="product-list">
+            <h4 class="mb-3">Newly Launched Products</h4>
+            <div id="newProducts"></div>
+        </div>
+    </div>
+    <script>
+    // --- Stepwise Admin Workflow ---
+    let newProducts = [];
+    let currentProductId = null;
+    let currentProduct = null;
+    let currentVariants = [];
+    // Step 1: Product
+    document.getElementById('addProductForm').onsubmit = async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const product = {
+            product_name: form.product_name.value,
+            brand: form.brand.value,
+            subcategory_id: form.subcategory_id.value,
+            material: form.material.value,
+            vendor_name: form.vendor_name.value,
+            min_order_qty: form.min_order_qty.value,
+            max_order_qty: form.max_order_qty.value,
+            occasion: form.occasion.value,
+            style: form.style.value,
+            season: form.season.value,
+            gender: form.gender.value,
+            rating: form.rating.value,
+            product_desc: form.product_desc.value
+        };
+        try {
+            const resp = await fetch('/api/add_product', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(product)
+            });
+            const data = await resp.json();
+            if (resp.ok && data.product_id) {
+                currentProductId = data.product_id;
+                currentProduct = product;
+                showStep(2);
+                resetVariantsForm();
+                hideMsg();
+            } else {
+                showError('Failed to add product: ' + (data.detail || 'Unknown error'));
+            }
+        } catch (err) {
+            showError('Error: ' + err);
+        }
+    };
+
+    // Step 2: Variants & Inventory
+    function resetVariantsForm() {
+        currentVariants = [];
+        renderVariants();
+    }
+    function renderVariants() {
+        const container = document.getElementById('variantsContainer');
+        container.innerHTML = '';
+        currentVariants.forEach((variant, idx) => {
+            container.appendChild(createVariantCard(variant, idx));
+        });
+        // Always show one empty variant form at the end
+        container.appendChild(createVariantCard({}, currentVariants.length));
+    }
+    function createVariantCard(variant, idx) {
+        const div = document.createElement('div');
+        div.className = 'border rounded p-3 mb-4 bg-light';
+        div.innerHTML = `
+            <div class="row g-3 align-items-end">
+                <div class="col-md-2">
+                    <label class="form-label">Size <span class="text-secondary small">(e.g. S, M, L, XL)</span></label>
+                    <input type="text" class="form-control" name="size" value="${variant.size||''}" required>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Color <span class="text-secondary small">(e.g. Red, Blue)</span></label>
+                    <input type="text" class="form-control" name="color" value="${variant.color||''}" required>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">SKU <span class="text-secondary small">(unique code)</span></label>
+                    <input type="text" class="form-control" name="sku" value="${variant.sku||''}" required>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">MRP <span class="text-secondary small">(₹)</span></label>
+                    <input type="number" class="form-control" name="mrp" value="${variant.mrp||''}" min="0" required>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Discount %</label>
+                    <input type="number" class="form-control" name="discount_percent" value="${variant.discount_percent||''}" min="0" max="100" required>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Current Price <span class="text-secondary small">(₹ after discount)</span></label>
+                    <input type="number" class="form-control" name="current_price" value="${variant.current_price||''}" min="0" required>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <label class="form-label">Image URL <span class="text-secondary small">(product photo)</span></label>
+                    <input type="url" class="form-control" name="img_url" value="${variant.img_url||''}">
+                </div>
+                <div class="col-md-4 mt-2">
+                    <label class="form-label">Est. Delivery <span class="text-secondary small">(e.g. 3-5 days)</span></label>
+                    <input type="text" class="form-control" name="est_delivery_time" value="${variant.est_delivery_time||'3-5 days'}" required>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <label class="form-label">Stock <span class="text-secondary small">(units available)</span></label>
+                    <input type="number" class="form-control" name="stock" value="${variant.stock||''}" min="0" required>
+                </div>
+                <div class="col-12 mt-2 d-flex align-items-end justify-content-end">
+                    ${idx < currentVariants.length ? `<button type="button" class="btn btn-outline-danger btn-sm" onclick="removeVariant(${idx})"><i class='bi bi-trash'></i> Remove</button>` : ''}
+                </div>
+            </div>
+        `;
+        return div;
+    }
+    function removeVariant(idx) {
+        currentVariants.splice(idx, 1);
+        renderVariants();
+    }
+    document.getElementById('addVariantBtn').onclick = function() {
+        // Save current filled variant (the last one)
+        const container = document.getElementById('variantsContainer');
+        const lastCard = container.lastElementChild;
+        const inputs = lastCard.querySelectorAll('input');
+        const variant = {
+            size: inputs[0].value,
+            color: inputs[1].value,
+            sku: inputs[2].value,
+            mrp: inputs[3].value,
+            discount_percent: inputs[4].value,
+            current_price: inputs[5].value,
+            img_url: inputs[6].value,
+            est_delivery_time: inputs[7].value,
+            stock: inputs[8].value
+        };
+        // Only add if at least size and color are filled
+        if(variant.size && variant.color) {
+            currentVariants.push(variant);
+            renderVariants();
+        }
+    };
+    document.getElementById('addVariantsForm').onsubmit = async function(e) {
+        e.preventDefault();
+        // Save all filled variants
+        const container = document.getElementById('variantsContainer');
+        const cards = Array.from(container.children);
+        let variants = cards.map(card => {
+            const inputs = card.querySelectorAll('input');
+            return {
+                size: inputs[0].value,
+                color: inputs[1].value,
+                sku: inputs[2].value,
+                mrp: inputs[3].value,
+                discount_percent: inputs[4].value,
+                current_price: inputs[5].value,
+                img_url: inputs[6].value,
+                est_delivery_time: inputs[7].value,
+                stock: inputs[8].value
+            };
+        });
+        // Remove empty trailing variant
+        variants = variants.filter(v => v.size && v.color);
+        if(variants.length === 0) return showError('Add at least one variant.');
+        // Add variants to DB
+        let variantIds = [];
+        try {
+            const resp = await fetch('/api/add_variants', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ product_id: currentProductId, variants })
+            });
+            const data = await resp.json();
+            if (resp.ok && data.variant_ids) {
+                variantIds = data.variant_ids;
+            } else {
+                showError('Failed to add variants: ' + (data.detail || 'Unknown error'));
+                return;
+            }
+        } catch (err) {
+            showError('Error: ' + err);
+            return;
+        }
+        // Add inventory for each variant
+        const inventories = variants.map((v, i) => ({
+            variant_id: variantIds[i],
+            stock: v.stock
+        }));
+        try {
+            const resp = await fetch('/api/add_inventory', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ inventories })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                // Add to newProducts and reset
+                newProducts.unshift({ ...currentProduct, variants });
+                renderProducts();
+                showSuccess('Product, variants, and inventory added successfully!');
+                showStep(1);
+                document.getElementById('addProductForm').reset();
+                document.getElementById('addVariantsForm').style.display = 'none';
+            } else {
+                showError('Failed to add inventory: ' + (data.detail || 'Unknown error'));
+            }
+        } catch (err) {
+            showError('Error: ' + err);
+        }
+    };
+    function showStep(step) {
+        document.getElementById('addProductForm').style.display = (step === 1) ? '' : 'none';
+        document.getElementById('addVariantsForm').style.display = (step === 2) ? '' : 'none';
+    }
+    function showSuccess(msg) {
+        document.getElementById('successMsg').innerText = msg;
+        document.getElementById('successMsg').style.display = '';
+        document.getElementById('errorMsg').style.display = 'none';
+    }
+    function showError(msg) {
+        document.getElementById('errorMsg').innerText = msg;
+        document.getElementById('errorMsg').style.display = '';
+        document.getElementById('successMsg').style.display = 'none';
+    }
+    function hideMsg() {
+        document.getElementById('successMsg').style.display = 'none';
+        document.getElementById('errorMsg').style.display = 'none';
+    }
+    function renderProducts() {
+        let html = '';
+        newProducts.forEach((p, idx) => {
+            html += `<div class='product-card'>
+                <div class='row'>
+                    <div class='col-md-3 d-flex align-items-center justify-content-center'>
+                        <img src='${p.variants && p.variants[0] && p.variants[0].img_url ? p.variants[0].img_url : 'https://via.placeholder.com/120x120?text=Product'}' class='img-fluid rounded' style='max-width:120px;max-height:120px;background:#e9ecef;'>
+                    </div>
+                    <div class='col-md-7'>
+                        <div class='fw-bold fs-5 mb-1'>${p.product_name}</div>
+                        <div class='mb-1'><b>Brand:</b> ${p.brand} | <b>Style:</b> ${p.style}</div>
+                        <div class='mb-1'><b>Occasion:</b> ${p.occasion} | <b>Gender:</b> ${p.gender}</div>
+                        <div class='mb-1'><b>Material:</b> ${p.material} | <b>Vendor:</b> ${p.vendor_name}</div>
+                        <div class='mb-1'><b>Min/Max Qty:</b> ${p.min_order_qty}/${p.max_order_qty} | <b>Season:</b> ${p.season}</div>
+                        <div class='mb-1'><b>Rating:</b> ${p.rating}</div>
+                        <div class='mb-1 text-secondary'>${p.product_desc}</div>
+                        <div class='mb-1'><b>Variants:</b> ${p.variants ? p.variants.map(v => `${v.size}/${v.color} (SKU: ${v.sku})`).join(', ') : ''}</div>
+                    </div>
+                    <div class='col-md-2 d-flex align-items-center justify-content-center'>
+                        <button class='btn btn-primary' onclick='generateEmail(${idx})'>Generate Email</button>
+                    </div>
+                </div>
+            </div>`;
+        });
+        document.getElementById('newProducts').innerHTML = html;
+    }
+    async function generateEmail(idx) {
+        const p = { ...newProducts[idx] };
+        // Patch: Add representative color, img_url, and description from first variant if not present
+        if (p.variants && p.variants.length > 0) {
+            p.color = p.variants[0].color || '';
+            p.img_url = p.variants[0].img_url || '';
+            p.brand = p.brand || '';
+            p.style = p.style || '';
+            p.description = p.product_desc || '';
+            p.image = p.variants[0].img_url || '';
+        }
+        p.name = p.product_name;
+        alert('Sending personalized emails for: ' + p.product_name);
+        try {
+            const response = await fetch('/api/send_emails', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(p)
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert('Emails sent to:\n' + data.recipients.join('\n'));
+            } else {
+                alert('Failed to send emails: ' + (data.detail || 'Unknown error'));
+            }
+        } catch (err) {
+            alert('Error sending emails: ' + err);
+        }
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

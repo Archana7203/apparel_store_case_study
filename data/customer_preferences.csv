@@ -1,0 +1,21 @@
+customer_id,style_preference_1,style_preference_2,style_preference_3,marketing_opted_in,preferred_language,created_at,updated_at
+1,Tops,blue,Puma,True,English,2023-01-01 00:00:00,2023-02-01 00:00:00
+2,Bottoms,white,H&M,True,Engish,2023-02-02 00:00:00,2023-03-01 00:00:00
+3,Tops,blue,Uniqlo,True,Hindi,2023-01-15 00:00:00,2023-02-15 00:00:00
+4,Accessories,red,Levi's,True,Tamil,2023-03-10 00:00:00,2023-03-25 00:00:00
+5,Tops,brown,Puma,True,Tamil,2023-02-20 00:00:00,2023-03-22 00:00:00
+6,Tops,grey,Puma,False,Kannada,2023-01-25 00:00:00,2023-03-01 00:00:00
+7,Footwear,red,Puma,False,English,2023-01-10 00:00:00,2023-01-25 00:00:00
+8,Tops,brown,Puma,False,Bengali,2023-02-15 00:00:00,2023-03-15 00:00:00
+9,Accessories,black,Zara,False,Kannada,2023-03-01 00:00:00,2023-04-01 00:00:00
+10,Tops,green,Nike,True,Bengali,2023-02-01 00:00:00,2023-03-01 00:00:00
+11,Bottoms,white,Adidas,True,Kannada,2023-01-20 00:00:00,2023-02-20 00:00:00
+12,Footwear,black,Puma,True,Tamil,2023-02-10 00:00:00,2023-03-10 00:00:00
+13,Tops,red,H&M,True,English,2023-03-05 00:00:00,2023-03-25 00:00:00
+14,Tops,blue,Nike,False,English,2023-02-05 00:00:00,2023-03-05 00:00:00
+15,Bottoms,brown,Zara,True,Hindi,2023-01-18 00:00:00,2023-02-18 00:00:00
+16,Accessories,green,Levi's,False,Tamil,2023-02-25 00:00:00,2023-03-20 00:00:00
+17,Tops,white,Uniqlo,True,Kannada,2023-01-28 00:00:00,2023-02-28 00:00:00
+18,Tops,red,Puma,False,Bengali,2023-03-01 00:00:00,2023-04-01 00:00:00
+19,Footwear,blue,Adidas,True,Tamil,2023-02-15 00:00:00,2023-03-15 00:00:00
+20,Bottoms,black,Nike,True,English,2023-01-10 00:00:00,2023-02-10 00:00:00

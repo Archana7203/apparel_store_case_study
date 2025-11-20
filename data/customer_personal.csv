@@ -1,0 +1,21 @@
+customer_id,first_name,last_name,email_id,phone_number,date_of_birth,gender,profile_pic,created_at,last_login,active_status
+1,Aarav,Sharma,aarav.sharma@example.com,+919876543210,1995-06-15,Male,,2023-01-01,2024-06-25 14:32:00,Active
+2,Diya,Verma,diya.varma@example.com,+919812345678,1997-09-23,Female,,2022-11-20,2024-06-24 12:00:00,Active
+3,Raj,Patel,raj.patel@example.com,+918888777666,1990-03-30,Male,,2023-05-05,2024-06-21 18:30:00,Inactive
+4,Neha,Singh,neha.singh@example.com,+919911122233,1998-11-19,Female,,2023-03-18,2024-06-19 07:10:00,Active
+5,Karan,Joshi,karan.joshi@example.com,+918888555444,1992-08-08,Male,,2022-08-25,2024-06-22 21:30:00,Inactive
+6,Sanya,Kapoor,sanya.kapoor@example.com,+919922334455,1996-12-01,Female,,2023-06-10,2024-06-26 08:00:00,Active
+7,Vikram,Reddy,vikram.reddy@example.com,+917788665544,1987-07-14,Male,,2021-12-20,2024-06-18 13:45:00,Inactive
+8,Anjali,Iyer,anjali.iyer@example.com,+919944556677,1999-04-11,Female,,2023-02-02,2024-06-23 16:05:00,Active
+9,Manish,Kumar,manish.kumar@example.com,+919977665544,1994-01-21,Male,,2023-01-05,2024-06-20 10:30:00,Active
+10,Tanya,Mehra,tanya.mehra@example.com,+919966554433,2000-06-25,Female,,2023-04-01,2024-06-24 09:15:00,Inactive
+11,Rahul,Gupta,rahul.gupta@example.com,+918800990011,1988-10-02,Male,,2022-10-10,2024-06-26 11:20:00,Active
+12,Priya,Naidu,archanag.7203@gmail.com,+919911445566,1993-05-30,Female,,2023-03-01,2024-06-25 14:00:00,Inactive
+13,Aditya,Nair,aditya.nair@example.com,+917788665500,1995-02-16,Male,,2023-06-15,2024-06-24 17:45:00,Active
+14,Isha,Chatterjee,isha.chatterjee@example.com,+919933221100,1996-08-19,Female,,2022-09-09,2024-06-22 19:00:00,Active
+15,Amit,Mishra,amit.mishra@example.com,+918866775533,1989-12-01,Male,,2022-12-12,2024-06-21 13:25:00,Inactive
+16,Nidhi,Jain,nidhi.jain@example.com,+919900112233,1998-03-27,Female,,2023-02-15,2024-06-23 07:55:00,Active
+17,Sachin,Banerjee,sachin.banerjee@example.com,+919955667788,1991-09-05,Male,,2022-07-07,2024-06-20 08:30:00,Active
+18,Meera,Kulkarni,meera.kulkarni@example.com,+917700889900,1994-11-11,Female,,2023-01-25,2024-06-18 22:40:00,Inactive
+19,Rohan,Aggarwal,rohan.aggarwal@example.com,+919977665533,1997-07-17,Male,,2023-04-30,2024-06-25 20:00:00,Active
+20,Simran,Das,simran.das@example.com,+918899776655,1992-10-10,Female,,2022-06-05,2024-06-26 10:30:00,Active

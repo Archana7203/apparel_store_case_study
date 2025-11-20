@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - West Side</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .uv-product-card {
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .uv-product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/home">WEST SIDE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-cart3"></i> Cart</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <h2 class="mt-4 mb-3 text-center">All Products</h2>
+        <div id="productGrid" class="product-grid"></div>
+    </div>
+    <script>
+    async function loadProducts() {
+        const res = await fetch('/api/products');
+        const data = await res.json();
+        const fallbackImages = [
+            'https://m.media-amazon.com/images/I/51zHeXIpxzL._SY879_.jpg',
+            'https://m.media-amazon.com/images/I/61ya50kZUUL._SY879_.jpg',
+            'https://m.media-amazon.com/images/I/610fN3RyKFL._AC_UL480_FMwebp_QL65_.jpg'
+        ];
+        let html = '';
+        data.products.forEach((product, idx) => {
+            // Try to map to local image by product_id
+            const localImg = `/image/${product.product_id}.jpg` || `/image/${product.product_id}.jpeg`;
+            // Check if the product already has an image (from DB), else check if local image exists, else fallback
+            let imgSrc = product.image;
+            if (!imgSrc) {
+                imgSrc = localImg;
+            }
+            // Store the image path for detail page (prefer local if no DB image)
+            product._imgPath = imgSrc || fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
+            html += `
+            <div class="uv-product-card">
+                <img src="${product._imgPath}" class="uv-product-img" alt="Product Image">
+                <div class="uv-product-title">${product.name}</div>
+                <div class="uv-product-meta">${product.brand}</div>
+                <div class="mb-2">${product.style}</div>
+                <button class="btn btn-outline-primary w-100" onclick="viewProduct(${product.product_id}, '${product._imgPath}')">View Product</button>
+            </div>
+            `;
+        });
+        document.getElementById('productGrid').innerHTML = html;
+    }
+    function viewProduct(productId, imgPath) {
+        // Store the image path in sessionStorage for use on the detail page
+        if (imgPath) {
+            sessionStorage.setItem('fallbackImg_' + productId, imgPath);
+        }
+        window.location.href = `/product/${productId}`;
+    }
+    loadProducts();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
