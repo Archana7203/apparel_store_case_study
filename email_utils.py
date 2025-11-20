@@ -1,15 +1,14 @@
-
 import smtplib
 import google.generativeai as genai
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from db import db
 from models import CustomerMeta, CustomerPersonal, CustomerPreference
+import os
 
-genai.configure(api_key="AIzaSyAzTxFBDtgRUgzx0uIruuhAA5aVaASbyb4")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
-EMAIL_SENDER = "arch070203@gmail.com"
-APP_PASSWORD = "dylh yjuj zzdh ufbw"
+
 
 def normalize_gender(val):
     val = str(val).strip().lower()
@@ -67,13 +66,13 @@ def build_prompt(row, product):
 
 def send_email(to_email, subject, html_content):
     msg = MIMEMultipart()
-    msg["From"] = EMAIL_SENDER
+    msg["From"] = os.getenv("EMAIL_SENDER")
     msg["To"] = to_email
     msg["Subject"] = subject
     msg.attach(MIMEText(html_content, "html"))
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
-        server.login(EMAIL_SENDER, APP_PASSWORD)
+        server.login(os.getenv("EMAIL_SENDER"), os.getenv("APP_PASSWORD"))
         server.send_message(msg)
 
 def get_target_customers(product):
